@@ -218,8 +218,6 @@ namespace SmartWizard.ViewModels
             var result = new DialogResult(ButtonResult.OK, parameters);
             RequestClose?.Invoke(result);
 
-            // 可选：发布完成事件
-            _eventAggregator?.GetEvent<WizardCompletedEvent>()?.Publish(wizardData);
         }
 
         private void UpdateNextButtonText()

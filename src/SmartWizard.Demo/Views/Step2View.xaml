@@ -1,0 +1,29 @@
+<UserControl x:Class="SmartWizard.Demo.Views.Step2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Margin="20">
+        <TextBlock Text="请选择您的偏好设置" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,20"/>
+        
+        <Label Content="语言:" Margin="0,0,0,5"/>
+        <ComboBox ItemsSource="{Binding AvailableLanguages}" 
+                  SelectedItem="{Binding SelectedLanguage}" 
+                  Margin="0,0,0,15" 
+                  Padding="8,5"/>
+        
+        <Label Content="主题:" Margin="0,0,0,5"/>
+        <ComboBox ItemsSource="{Binding AvailableThemes}" 
+                  SelectedItem="{Binding Theme}" 
+                  Margin="0,0,0,15" 
+                  Padding="8,5"/>
+        
+        <CheckBox Content="启用通知" 
+                  IsChecked="{Binding EnableNotifications}" 
+                  Margin="0,10,0,0"/>
+        
+        <TextBlock Text="这些设置可以在稍后的设置页面中修改。" 
+                   FontSize="12" 
+                   Foreground="Gray" 
+                   TextWrapping="Wrap" 
+                   Margin="0,15,0,0"/>
+    </StackPanel>
+</UserControl>

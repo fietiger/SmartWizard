@@ -16,6 +16,11 @@ namespace SmartWizard.Demo
             // 注册向导
             var wizardService = containerProvider.Resolve<IWizardService>();
             wizardService.RegisterWizard("ConfigWizard", "ConfigWizardDialogView");
+            
+            // 注册Step ViewModels和Views的映射
+            var viewLocatorService = containerProvider.Resolve<IViewLocatorService>();
+            viewLocatorService.RegisterViewMapping<Step1ViewModel, Step1View>();
+            viewLocatorService.RegisterViewMapping<Step2ViewModel, Step2View>();
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

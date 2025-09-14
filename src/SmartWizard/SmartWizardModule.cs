@@ -1,5 +1,6 @@
 using Prism.Ioc;
 using Prism.Modularity;
+using SmartWizard.Controls;
 using SmartWizard.Services;
 using SmartWizard.ViewModels;
 using SmartWizard.Views;
@@ -13,13 +14,16 @@ namespace SmartWizard
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            // 模块初始化后的操作
+            // 初始化ViewLocatorService
+            var viewLocatorService = containerProvider.Resolve<IViewLocatorService>();
+            WizardStepContentPresenter.SetViewLocatorService(viewLocatorService);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // 注册服务
             containerRegistry.RegisterSingleton<IWizardService, WizardService>();
+            containerRegistry.RegisterSingleton<IViewLocatorService, ViewLocatorService>();
 
             // 注册基础组件
             containerRegistry.Register<WizardDialogViewModel>();

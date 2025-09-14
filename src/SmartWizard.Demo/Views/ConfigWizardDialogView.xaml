@@ -141,7 +141,8 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     Background="LightYellow"
-                    Orientation="Vertical">
+                    Orientation="Vertical"
+                    Visibility="">
                     <TextBlock FontSize="10" Text="{Binding Steps.Count, StringFormat='Steps Count: {0}'}" />
                     <TextBlock FontSize="10" Text="{Binding CurrentStepIndex, StringFormat='Current Index: {0}'}" />
                     <TextBlock FontSize="10" Text="{Binding CurrentStep, StringFormat='Current Step: {0}', FallbackValue='CurrentStep is NULL'}" />

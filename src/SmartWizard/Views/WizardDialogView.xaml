@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SmartWizard.Converters"
+    xmlns:controls="clr-namespace:SmartWizard.Controls"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:vm="clr-namespace:SmartWizard.ViewModels"
     Width="600"
@@ -82,14 +83,15 @@
             Padding="30"
             Background="White">
             <Grid>
-                <ContentPresenter Content="{Binding CurrentStep}" />
+                <controls:WizardStepContentPresenter Content="{Binding CurrentStep}" />
                 <!--  调试信息  -->
                 <StackPanel
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     Background="LightYellow"
-                    Orientation="Vertical">
+                    Orientation="Vertical"
+                    Visibility="Hidden">
                     <TextBlock FontSize="10" Text="{Binding Steps.Count, StringFormat='Steps Count: {0}'}" />
                     <TextBlock FontSize="10" Text="{Binding CurrentStepIndex, StringFormat='Current Index: {0}'}" />
                     <TextBlock FontSize="10" Text="{Binding CurrentStep, StringFormat='Current Step: {0}', FallbackValue='CurrentStep is NULL'}" />
