@@ -1,0 +1,110 @@
+<Window
+    x:Class="SmartWizard.Demo.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="600"
+    Height="400"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="SmartWizard 演示程序" />
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            Orientation="Vertical">
+
+            <!--  传统方式  -->
+            <TextBlock
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Text="传统方式（需要自定义ViewModel和View）" />
+
+            <StackPanel
+                Margin="0,0,0,20"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Margin="0,0,5,0"
+                    Padding="15,8"
+                    Command="{Binding ShowConfigWizardCommand}"
+                    Content="使用IDialogService"
+                    FontSize="12" />
+
+                <Button
+                    Margin="5,0,0,0"
+                    Padding="15,8"
+                    Command="{Binding ShowConfigWizardWithServiceCommand}"
+                    Content="使用IWizardService"
+                    FontSize="12" />
+            </StackPanel>
+
+            <!--  简化方式  -->
+            <TextBlock
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Text="简化方式（只需提供步骤ViewModels）" />
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button
+                    Margin="0,0,5,0"
+                    Padding="15,8"
+                    Background="#E8F5E8"
+                    BorderBrush="#4CAF50"
+                    Command="{Binding ShowSimplifiedWizardCommand}"
+                    Content="简化API（基本用法）"
+                    FontSize="12" />
+
+                <Button
+                    Margin="5,0,0,0"
+                    Padding="15,8"
+                    Background="#E3F2FD"
+                    BorderBrush="#2196F3"
+                    Command="{Binding ShowSimplifiedWizardWithDataCollectorCommand}"
+                    Content="简化API（数据收集器）"
+                    FontSize="12" />
+            </StackPanel>
+        </StackPanel>
+
+        <Border
+            Grid.Row="2"
+            Padding="15"
+            Background="#F9F9F9"
+            BorderBrush="Gray"
+            BorderThickness="1">
+            <ScrollViewer>
+                <TextBox
+                    AcceptsReturn="True"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontFamily="Consolas"
+                    FontSize="12"
+                    HorizontalScrollBarVisibility="Auto"
+                    IsReadOnly="True"
+                    Text="{Binding Result}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" />
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>
