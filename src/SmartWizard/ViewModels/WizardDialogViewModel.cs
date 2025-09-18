@@ -2,7 +2,6 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
-using SmartWizard.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
